@@ -78,6 +78,21 @@ public class PetStoreTest
     }
 
     @Test
+    @DisplayName("Sphynx Duplicate Record Exception Test")
+    public void sphynxDupRecordExceptionTest() {
+        Cat sphynx = new Cat(AnimalType.DOMESTIC, Skin.FUR, Gender.MALE, Breed.SPHYNX,
+                new BigDecimal("650.00"), 1);
+        petStore.initAddDuplicateItem(sphynx);
+
+        // Validation
+        String expectedMessage = "Duplicate Cat record store id [1]";
+        Exception exception = assertThrows(DuplicatePetStoreRecordException.class, () ->{
+            petStore.soldPetItem(sphynx);});
+        assertEquals(expectedMessage, exception.getMessage(), "DuplicateRecordExceptionTest was NOT encountered!");
+
+    }
+
+    @Test
     @DisplayName("Sale of Sphynx Remove Item Test")
     public void sphynxSoldTest() throws DuplicatePetStoreRecordException, PetNotFoundSaleException {
         int inventorySize = petStore.getPetsForSale().size() - 1;
