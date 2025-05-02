@@ -36,15 +36,15 @@ public abstract class  AbstractPet {
         {
             case FUR:
             case FEATHERS:
-                petHypoallergenicStmt = "The pet is not hyperallergetic!";
+                petHypoallergenicStmt = "The pet is not hypoallergenic!";
                 break;
             case HAIR:
             case SCALES:
-                petHypoallergenicStmt = "The pet is hyperallergetic!";
+                petHypoallergenicStmt = "The pet is hypoallergenic!";
                 break;
             default:
                 petHypoallergenicStmt = "The pet skin is UNKNOWN at this time, so cannot determine if pet is " +
-                        "hypoallergetic!";
+                        "hypoallergenic!";
                 break;
         }
         return petHypoallergenicStmt;
